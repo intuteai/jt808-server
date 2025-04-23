@@ -22,8 +22,8 @@ namespace JT808.Gateway.SimpleServer
         static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddSingleton<ILoggerFactory, LoggerFactory>()
-                .AddSingleton(typeof(ILogger<>), typeof(Logger<>))
+            builder.Services.AddSingleton<ILoggerFactory, LoggerFactory>();
+                .AddSingleton(typeof(ILogger<>), typeof(Logger<>));
             builder.Services.AddSingleton<JT1078VideoTriggerService>();
             builder.Services.AddJT808UnificationSendService();
                 //使用内存队列实现会话通知
