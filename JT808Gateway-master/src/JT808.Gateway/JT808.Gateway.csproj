@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\PipelineInfo.props" />
+  <PropertyGroup>
+    <Description>基于Pipeline实现的JT808Gateway的网络库</Description>
+    <PackageReleaseNotes>基于Pipeline实现的JT808Gateway的网络库</PackageReleaseNotes>
+    <DocumentationFile>JT808.Gateway.xml</DocumentationFile>
+    <PackageId>JT808.Gateway</PackageId>
+    <Product>JT808.Gateway</Product>
+    <IsPackable>true</IsPackable> 
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Internal\JT808NormalGatewayBuilderDefault.cs" />
+    <Compile Remove="Internal\JT808QueueGatewayBuilderDefault.cs" />
+  </ItemGroup>
+
+   <ItemGroup>
+	 <FrameworkReference Include="Microsoft.AspNetCore.App" />
+	 <PackageReference Include="System.IO.Pipelines" Version="8.0.0" />
+   </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\JT808.Gateway.Abstractions\JT808.Gateway.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+  </ItemGroup>
+</Project>

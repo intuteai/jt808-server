@@ -1,0 +1,39 @@
+name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 9.0.201
+    - name: dotnet info
+      run: dotnet --info
+    - name: dotnet restore
+      run: dotnet restore ./src/JT808.Protocol.sln
+    - name: dotnet jt808 build
+      run: dotnet build ./src/JT808.Protocol.Test/JT808.Protocol.Test.csproj
+    - name: dotnet jt808 test
+      run: dotnet test ./src/JT808.Protocol.Test/JT808.Protocol.Test.csproj
+    - name: dotnet jt808_jt1078 build
+      run: dotnet build ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.JT1078.Test/JT808.Protocol.Extensions.JT1078.Test.csproj
+    - name: dotnet jt808_jt1078 test
+      run: dotnet test ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.JT1078.Test/JT808.Protocol.Extensions.JT1078.Test.csproj
+    - name: dotnet jt808_subiao build
+      run: dotnet build ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.SuBiao.Test/JT808.Protocol.Extensions.SuBiao.Test.csproj
+    - name: dotnet jt808_subiao test
+      run: dotnet test ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.SuBiao.Test/JT808.Protocol.Extensions.SuBiao.Test.csproj
+    - name: dotnet jt808_yuebiao build
+      run: dotnet build ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.YueBiao.Test/JT808.Protocol.Extensions.YueBiao.Test.csproj
+    - name: dotnet jt808_yuebiao test
+      run: dotnet test ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.YueBiao.Test/JT808.Protocol.Extensions.YueBiao.Test.csproj
+    - name: dotnet gps51 build
+      run: dotnet build ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.GPS51.Test/JT808.Protocol.Extensions.GPS51.Test.csproj
+    - name: dotnet gps51 test
+      run: dotnet test ./src/JT808.Protocol.Extensions/JT808.Protocol.Extensions.GPS51.Test/JT808.Protocol.Extensions.GPS51.Test.csproj

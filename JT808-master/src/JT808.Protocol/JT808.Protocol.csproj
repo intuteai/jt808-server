@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Info.props" />
+  <PropertyGroup>
+    <PackageId>JT808</PackageId>
+    <Product>JT808</Product>
+    <Description>
+		JT/T808 protocol,JT808 protocol, GB808 protocol(support 2011, 2013, 2019 version).JT/T808协议、JT808协议、GB808协议(支持2011、2013、2019版本)。
+	</Description>
+    <PackageReleaseNotes>
+		JT/T808 protocol,JT808 protocol, GB808 protocol(support 2011, 2013, 2019 version).JT/T808协议、JT808协议、GB808协议(支持2011、2013、2019版本)。
+	</PackageReleaseNotes>
+    <DocumentationFile>JT808.Protocol.xml</DocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Formatters\MessageBodyFormatters\**" />
+    <Compile Remove="Metadata\JT808LocationAttachProperties\**" />
+    <EmbeddedResource Remove="Formatters\MessageBodyFormatters\**" />
+    <EmbeddedResource Remove="Metadata\JT808LocationAttachProperties\**" />
+    <None Remove="Formatters\MessageBodyFormatters\**" />
+    <None Remove="Metadata\JT808LocationAttachProperties\**" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\README.en.md" Pack="true" PackagePath="" />
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Formatters\JT808HeaderFormatter.cs" />
+    <Compile Remove="Formatters\JT808HeaderPackageFormatter.cs" />
+    <Compile Remove="Formatters\JT808PackageFormatter.cs" />
+    <Compile Remove="Formatters\JT808SplitPackageBodiesFormatter.cs" />
+    <Compile Remove="IJT808BufferedEntity.cs" />
+    <Compile Remove="IJT808Properties.cs" />
+    <Compile Remove="JT808BufferedEntityBase.cs" />
+    <Compile Remove="JT808GlobalConfig.cs" />
+    <Compile Remove="JT808MessageBodyFactory.cs" />
+    <Compile Remove="Metadata\JT808TerminalLoginRequestProperty.cs" />
+    <Compile Remove="Metadata\JT808UploadLocationRequestProperty.cs" />
+  </ItemGroup>
+	
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="System.Buffers" Version="4.6.1" />
+		<PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+		<PackageReference Include="System.Memory" Version="4.6.2" />
+		<PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
+		<PackageReference Include="System.Text.Json" Version="9.0.3" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.3" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.3" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <None Update="Extensions\JT808PackageExtensionsTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JT808PackageExtensionsTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Extensions\JT808PackageExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JT808PackageExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

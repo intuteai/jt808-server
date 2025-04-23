@@ -1,0 +1,23 @@
+﻿name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 8.0.100
+    - name: dotnet info
+      run: dotnet --info
+    - name: dotnet JT808.Gateway restore
+      run: dotnet restore ./src/JT808.Gateway.sln
+    - name: dotnet JT808.Gateway build
+      run: dotnet build ./src/JT808.Gateway.Tests/JT808.Gateway.Test/JT808.Gateway.Test.csproj
+    - name: dotnet JT808.Gateway test
+      run: dotnet test ./src/JT808.Gateway.Tests/JT808.Gateway.Test/JT808.Gateway.Test.csproj

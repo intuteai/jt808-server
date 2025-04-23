@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\PipelineInfo.props" />
+  <PropertyGroup>
+    <Description>基于Pipeline实现的JT808Gateway的抽象库</Description>
+    <PackageReleaseNotes>基于Pipeline实现的JT808Gateway的抽象库</PackageReleaseNotes>
+    <PackageId>JT808.Gateway.Abstractions</PackageId>
+    <Product>JT808.Gateway.Abstractions</Product>
+    <DocumentationFile>JT808.Gateway.Abstractions.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Enums\JT808UseType.cs" />
+    <Compile Remove="IJT808NormalGatewayBuilder.cs" />
+    <Compile Remove="IJT808QueueGatewayBuilder.cs" />
+    <Compile Remove="JT808QueueReplyMessageHandler.cs" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="JT808" Version="2.6.5" />
+	<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+	<None Include="..\..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+  </ItemGroup>
+</Project>

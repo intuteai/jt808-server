@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JT808.Gateway</name>
+    </assembly>
+    <members>
+        <member name="T:JT808.Gateway.Authorization.JT808TokenAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Authorization.JT808TokenAttribute.OnAuthorization(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:JT808.Gateway.Extensions.JT808ReplyMessageExtensions">
+            <summary>
+            消息应答服务扩展
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808ReplyMessageExtensions.AddReplyMessage``1(JT808.Gateway.Abstractions.IJT808ClientBuilder)">
+            <summary>
+            消息下行服务
+            </summary>
+            <param name="jT808ClientBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808SessionNoticeExtensions.AddSessionNotice(JT808.Gateway.Abstractions.IJT808ClientBuilder)">
+            <summary>
+            会话通知服务
+            </summary>
+            <param name="jT808ClientBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808SessionNoticeExtensions.AddSessionNotice``1(JT808.Gateway.Abstractions.IJT808ClientBuilder)">
+            <summary>
+            消息会话通知服务
+            </summary>
+            <typeparam name="TSessionNoticeService">自定义会话通知服务</typeparam>
+            <param name="jT808ClientBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808SessionNoticeExtensions.AddSessionNotice(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            会话通知服务
+            </summary>
+            <param name="jT808GatewayBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808SessionNoticeExtensions.AddSessionNotice``1(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            消息会话通知服务
+            </summary>
+            <typeparam name="TSessionNoticeService">自定义会话通知服务</typeparam>
+            <param name="jT808NormalGatewayBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808TransmitExtensions.AddTransmit(JT808.Gateway.Abstractions.IJT808ClientBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            转发服务（不同的消费者实例）
+            </summary>
+            <param name="jT808ClientBuilder"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Extensions.JT808TransmitExtensions.AddTransmit(JT808.Gateway.Abstractions.IJT808GatewayBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            转发服务（不同的消费者实例）
+            </summary>
+            <param name="jT808GatewayBuilder"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JT808.Gateway.HostedServices.JT808ReplyMessageHostedService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.HostedServices.JT808ReplyMessageHostedService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,JT808.Gateway.Abstractions.IJT808DownMessageHandler,JT808.Gateway.Abstractions.IJT808MsgReplyProducer,JT808.Gateway.Abstractions.IJT808MsgConsumer)">
+            <summary>
+            
+            </summary>
+            <param name="loggerFactory"></param>
+            <param name="jT808ReplyMessageHandler"></param>
+            <param name="jT808MsgReplyProducer"></param>
+            <param name="jT808MsgConsumer"></param>
+        </member>
+        <member name="T:JT808.Gateway.JT808GatewayExtensions">
+            <summary>
+            JT808网关注册扩展
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddGateway(JT808.Protocol.IJT808Builder,System.Action{JT808.Gateway.Abstractions.Configurations.JT808Configuration})">
+            <summary>
+            添加808网关
+            </summary>
+            <param name="jT808Builder"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddGateway(JT808.Protocol.IJT808Builder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            添加808网关
+            </summary>
+            <param name="jT808Builder"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddTcp(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加tcp服务器
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddUdp(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加udp服务器
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddMessageHandler``1(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加消息业务处理程序
+            </summary>
+            <typeparam name="TJT808MessageHandler"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddMsgProducer``1(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加消息生产者
+            </summary>
+            <typeparam name="TJT808MsgProducer"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddMsgReplyLoggingProducer``1(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加消息应答后的应答生产者
+            </summary>
+            <typeparam name="TJT808MsgReplyLoggingProducer"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddMsgReplyConsumer``1(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加消息应答消费者
+            </summary>
+            <typeparam name="TJT808MsgReplyConsumer"></typeparam>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808GatewayExtensions.AddJT808Core(JT808.Gateway.Abstractions.IJT808GatewayBuilder)">
+            <summary>
+            添加公共模块
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JT808.Gateway.JT808TcpServer">
+            <summary>
+            808 tcp服务器
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.JT808TcpServer.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{JT808.Gateway.Abstractions.Configurations.JT808Configuration},JT808.Gateway.Abstractions.IJT808MsgProducer,JT808.Gateway.Abstractions.IJT808MsgReplyLoggingProducer,JT808.Gateway.Abstractions.JT808MessageHandler,JT808.Protocol.IJT808Config,Microsoft.Extensions.Logging.ILoggerFactory,JT808.Gateway.Session.JT808SessionManager,JT808.Gateway.Services.JT808BlacklistManager)">
+            <summary>
+            初始化服务注册
+            </summary>
+            <param name="configurationMonitor"></param>
+            <param name="msgProducer"></param>
+            <param name="msgReplyLoggingProducer"></param>
+            <param name="messageHandler"></param>
+            <param name="jT808Config"></param>
+            <param name="loggerFactory"></param>
+            <param name="jT808SessionManager"></param>
+            <param name="jT808BlacklistManager"></param>
+        </member>
+        <member name="M:JT808.Gateway.JT808TcpServer.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808TcpServer.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JT808.Gateway.JT808WebApi">
+            <summary>
+            jt808 webapi
+            </summary>
+        </member>
+        <member name="F:JT808.Gateway.JT808WebApi.SessionManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:JT808.Gateway.JT808WebApi.BlacklistManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.#ctor(JT808.Gateway.Session.JT808SessionManager,JT808.Gateway.Services.JT808BlacklistManager)">
+            <summary>
+            
+            </summary>
+            <param name="jT808SessionManager"></param>
+            <param name="jT808BlacklistManager"></param>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.Index">
+            <summary>
+            index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.UnificationSend(JT808.Gateway.Abstractions.Dtos.JT808UnificationSendRequestDto)">
+            <summary>
+            统一下发设备消息服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.SessionTcpGetAll">
+            <summary>
+            会话服务-Tcp会话查询
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:JT808.Gateway.JT808WebApi.SessionTcpByPage(System.Int32,System.Int32)" -->
+        <member name="M:JT808.Gateway.JT808WebApi.QueryTcpSessionByTerminalPhoneNo(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            会话服务-通过设备终端号查询对应会话
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.SessionTcpRemoveByTerminalPhoneNo(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            会话服务-通过设备终端号移除对应会话
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.SessionUdpGetAll">
+            <summary>
+            会话服务-Udp会话查询
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:JT808.Gateway.JT808WebApi.SessionUdpByPage(System.Int32,System.Int32)" -->
+        <member name="M:JT808.Gateway.JT808WebApi.QueryUdpSessionByTerminalPhoneNo(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            会话服务-通过设备终端号查询对应会话
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.SessionUdpRemoveByTerminalPhoneNo(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            会话服务-通过设备终端号移除对应会话
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.BlacklistAdd(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            黑名单添加
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.BlacklistRemove(JT808.Gateway.Abstractions.Dtos.JT808TerminalPhoneNoDto)">
+            <summary>
+            黑名单删除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.JT808WebApi.BlacklistGetAll">
+            <summary>
+            黑名单查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JT808.Gateway.Services.JT808BlacklistManager">
+            <summary>
+            SIM黑名单管理
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808BlacklistManager.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808BlacklistManager.Contains(System.String)">
+            <summary>
+            是否包含
+            </summary>
+            <param name="sim"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808BlacklistManager.Add(System.String)">
+            <summary>
+            添加
+            </summary>
+            <param name="sim"></param>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808BlacklistManager.Remove(System.String)">
+            <summary>
+            移除
+            </summary>
+            <param name="sim"></param>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808BlacklistManager.GetAll">
+            <summary>
+            查询所有黑名单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.SendAsync(System.ValueTuple{System.String,System.Byte[]})">
+            <summary>
+            
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.InitialDispatcherClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.InitRemoteServsers">
+            <summary>
+            初始化远程服务器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.DelRemoteServsers(System.Collections.Generic.List{System.String})">
+            <summary>
+            动态删除远程服务器
+            </summary>
+            <param name="lastRemoteServers"></param>
+        </member>
+        <member name="M:JT808.Gateway.Services.JT808TransmitService.AddRemoteServsers(System.Collections.Generic.List{System.String})">
+            <summary>
+            动态添加远程服务器
+            </summary>
+            <param name="lastRemoteServers"></param>
+        </member>
+        <member name="T:JT808.Gateway.Session.JT808SessionManager">
+            <summary>
+            
+            <remark>不支持变态类型:既发TCP和UDP</remark>
+            </summary>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808SessionManager.Sessions">
+            <summary>
+            socket连接会话
+            </summary>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808SessionManager.TerminalPhoneNoSessions">
+            <summary>
+            socket绑定的终端SIM连接会话
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Session.JT808SessionManager.#ctor(JT808.Gateway.Abstractions.IJT808SessionProducer,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="jT808SessionProducer"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:JT808.Gateway.Session.JT808SessionManager.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808SessionManager.TotalSessionCount">
+            <summary>
+            获取会话总数量
+            </summary>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808SessionManager.TcpSessionCount">
+            <summary>
+            获取tcp会话数量
+            </summary>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808SessionManager.UdpSessionCount">
+            <summary>
+            获取udp会话数量
+            </summary>
+        </member>
+        <member name="M:JT808.Gateway.Session.JT808SessionManager.TryLink(System.String,JT808.Gateway.Abstractions.IJT808Session)">
+            <summary>
+            
+            </summary>
+            <param name="terminalPhoneNo"></param>
+            <param name="session"></param>
+        </member>
+        <member name="M:JT808.Gateway.Session.JT808SessionManager.TryLink(System.String,System.Net.Sockets.Socket,System.Net.EndPoint)">
+            <summary>
+            
+            </summary>
+            <param name="terminalPhoneNo"></param>
+            <param name="socket"></param>
+            <param name="remoteEndPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JT808.Gateway.Session.JT808SessionManager.TryAdd(JT808.Gateway.Abstractions.IJT808Session)">
+            <summary>
+            
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808TcpSession.TerminalPhoneNo">
+            <summary>
+            终端手机号
+            </summary>
+        </member>
+        <member name="P:JT808.Gateway.Session.JT808UdpSession.TerminalPhoneNo">
+            <summary>
+            终端手机号
+            </summary>
+        </member>
+    </members>
+</doc>
